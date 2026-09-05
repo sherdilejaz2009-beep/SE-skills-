@@ -1,1 +1,2436 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Sherdil Ejaz — Web Designer and Developer creating responsive, SEO-friendly and clean websites using HTML5, CSS3, JavaScript, WordPress and WooCommerce.">
+
+    <meta name="keywords"
+          content="Sherdil Ejaz, Web Designer, Web Developer, HTML5, CSS3, JavaScript, WordPress, WooCommerce, Responsive Websites">
+
+    <meta name="author"
+          content="Sherdil Ejaz">
+
+    <title>Sherdil Ejaz | Web Designer & Developer</title>
+
+<style>
+/* =========================================================
+   SHERDIL EJAZ — HOME PAGE INTERNAL CSS
+   SELF-CONTAINED HOME LAYOUT
+   ========================================================= */
+
+:root{
+    --bg:#08090d;
+    --bg2:#0e1218;
+    --bg3:#151a21;
+    --brown:#62493a;
+    --brown2:#8a6a52;
+    --gold:#b28a68;
+    --blue:#00a8ff;
+    --blue2:#20c4ff;
+    --blue3:#78ddff;
+    --white:#f7f4ef;
+    --soft:#c8c3bc;
+    --muted:#8d8a86;
+    --border:rgba(255,255,255,.10);
+    --border-blue:rgba(0,168,255,.28);
+    --glass:rgba(255,255,255,.045);
+    --container:1180px;
+    --radius:22px;
+    --ease:.35s ease;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-width:320px;
+    overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.7;
+    color:var(--white);
+    background:
+        radial-gradient(circle at 10% 10%,rgba(0,168,255,.08),transparent 28%),
+        radial-gradient(circle at 90% 30%,rgba(178,138,104,.08),transparent 30%),
+        linear-gradient(135deg,var(--bg),var(--bg2) 55%,#0a0e13);
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:80px 80px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+::selection{
+    background:var(--blue);
+    color:#fff;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,input,textarea,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(calc(100% - 40px),var(--container));
+    margin-inline:auto;
+}
+
+/* ================= HEADER ================= */
+
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    padding:17px 0;
+    background:rgba(8,9,13,.68);
+    border-bottom:1px solid rgba(255,255,255,.07);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    transition:
+        background var(--ease),
+        padding var(--ease),
+        box-shadow var(--ease),
+        border-color var(--ease);
+}
+
+.site-header.scrolled{
+    padding:10px 0;
+    background:rgba(34,29,26,.95);
+    border-color:rgba(0,168,255,.24);
+    box-shadow:0 15px 45px rgba(0,0,0,.38);
+}
+
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    flex-shrink:0;
+    font-weight:800;
+}
+
+.logo-mark{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:linear-gradient(135deg,var(--brown2),var(--blue));
+    color:#fff;
+    font-size:19px;
+    font-weight:800;
+    box-shadow:0 8px 28px rgba(0,168,255,.22);
+}
+
+.logo-text{
+    color:var(--white);
+    font-size:17px;
+    letter-spacing:-.3px;
+}
+
+.site-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+}
+
+.site-nav a{
+    position:relative;
+    padding:9px 13px;
+    border-radius:10px;
+    color:var(--soft);
+    font-size:14px;
+    font-weight:600;
+    transition:var(--ease);
+}
+
+.site-nav a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.06);
+}
+
+.site-nav a.active{
+    color:#fff;
+}
+
+.site-nav a.active::after{
+    content:"";
+    position:absolute;
+    left:13px;
+    right:13px;
+    bottom:3px;
+    height:2px;
+    border-radius:20px;
+    background:var(--blue);
+    box-shadow:0 0 12px rgba(0,168,255,.75);
+}
+
+.nav-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:11px 19px;
+    border:1px solid rgba(0,168,255,.35);
+    border-radius:12px;
+    background:rgba(0,168,255,.08);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    transition:var(--ease);
+}
+
+.nav-btn:hover{
+    background:var(--blue);
+    border-color:var(--blue);
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(0,168,255,.25);
+}
+
+.menu-toggle{
+    display:none;
+    width:45px;
+    height:45px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+    background:rgba(255,255,255,.05);
+}
+
+.menu-toggle span{
+    width:21px;
+    height:2px;
+    border-radius:5px;
+    background:#fff;
+    transition:var(--ease);
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+/* ================= HERO ================= */
+
+.hero-section{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:145px 0 85px;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+        radial-gradient(circle at 78% 45%,rgba(0,168,255,.12),transparent 31%),
+        radial-gradient(circle at 15% 85%,rgba(138,106,82,.12),transparent 30%),
+        linear-gradient(135deg,#08090d,#0e1319 58%,#11151b);
+}
+
+.hero-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+    background-size:75px 75px;
+    mask-image:linear-gradient(to bottom,black,transparent 95%);
+}
+
+.hero-glow{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    filter:blur(30px);
+    z-index:-1;
+}
+
+.glow-one{
+    width:520px;
+    height:520px;
+    right:-210px;
+    top:80px;
+    background:radial-gradient(circle,rgba(0,168,255,.16),transparent 68%);
+}
+
+.glow-two{
+    width:450px;
+    height:450px;
+    left:-220px;
+    bottom:-220px;
+    background:radial-gradient(circle,rgba(178,138,104,.14),transparent 68%);
+}
+
+.hero-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1.06fr) minmax(390px,.94fr);
+    align-items:center;
+    gap:72px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    min-width:0;
+    max-width:700px;
+}
+
+.availability{
+    width:max-content;
+    max-width:100%;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:20px;
+    padding:7px 13px;
+    border:1px solid rgba(0,168,255,.23);
+    border-radius:999px;
+    background:rgba(0,168,255,.055);
+    color:var(--blue2);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.4px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    flex:0 0 7px;
+    border-radius:50%;
+    background:#35df8a;
+    box-shadow:0 0 12px rgba(53,223,138,.75);
+}
+
+.hero-small-title{
+    margin-bottom:9px;
+    color:var(--gold);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.hero-content h1{
+    margin:0 0 20px;
+    color:#fff;
+    font-size:clamp(52px,7vw,88px);
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:800;
+}
+
+.hero-content h1 span{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    background:linear-gradient(100deg,var(--gold),var(--blue2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero-content h2{
+    margin-bottom:22px;
+    color:#fff;
+    font-size:clamp(22px,3vw,34px);
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.hero-content h2 span{
+    color:var(--blue2);
+}
+
+.hero-description{
+    max-width:650px;
+    margin-bottom:30px;
+    color:var(--soft);
+    font-size:17px;
+    line-height:1.85;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+}
+
+.btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-height:50px;
+    padding:0 22px;
+    border:1px solid transparent;
+    border-radius:13px;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    overflow:hidden;
+    transition:var(--ease);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--blue),#007ec2);
+    box-shadow:0 12px 30px rgba(0,168,255,.20);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(0,168,255,.30);
+}
+
+.btn-secondary{
+    border-color:rgba(255,255,255,.13);
+    background:rgba(255,255,255,.045);
+}
+
+.btn-secondary:hover{
+    border-color:rgba(0,168,255,.45);
+    background:rgba(0,168,255,.08);
+    transform:translateY(-3px);
+}
+
+.hero-mini-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:34px;
+}
+
+.mini-stat{
+    min-width:0;
+    padding:14px 12px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(10px);
+    transition:var(--ease);
+}
+
+.mini-stat:hover{
+    transform:translateY(-4px);
+    border-color:rgba(0,168,255,.28);
+    background:rgba(0,168,255,.055);
+}
+
+.mini-stat strong{
+    display:block;
+    margin-bottom:3px;
+    color:#fff;
+    font-size:13px;
+}
+
+.mini-stat span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* ================= DEVELOPER CARD ================= */
+
+.hero-visual{
+    position:relative;
+    min-width:0;
+    min-height:510px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.visual-orbit{
+    position:absolute;
+    border:1px solid rgba(0,168,255,.10);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.orbit-one{
+    width:500px;
+    height:500px;
+    transform:rotate(12deg);
+}
+
+.orbit-two{
+    width:390px;
+    height:390px;
+    border-color:rgba(178,138,104,.10);
+    transform:rotate(-17deg);
+}
+
+.developer-card{
+    position:relative;
+    z-index:3;
+    width:min(100%,520px);
+    min-height:410px;
+    padding:24px;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:28px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)),
+        rgba(12,16,22,.72);
+    box-shadow:
+        0 25px 65px rgba(0,0,0,.38),
+        0 0 35px rgba(0,168,255,.10);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    overflow:hidden;
+}
+
+.developer-card::before{
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    right:-110px;
+    top:-110px;
+    border-radius:50%;
+    background:rgba(0,168,255,.12);
+    filter:blur(8px);
+}
+
+.card-top{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    min-height:30px;
+    padding-bottom:17px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.window-dot{
+    width:9px;
+    height:9px;
+    flex:0 0 9px;
+    border-radius:50%;
+    background:var(--brown2);
+}
+
+.window-dot:nth-child(2){
+    background:var(--gold);
+}
+
+.window-dot:nth-child(3){
+    background:var(--blue);
+}
+
+.card-label{
+    margin-left:8px;
+    color:var(--muted);
+    font-family:"Courier New",monospace;
+    font-size:11px;
+}
+
+.code-area{
+    position:relative;
+    z-index:2;
+    padding-top:22px;
+    font-family:"Courier New",monospace;
+    font-size:13px;
+    line-height:1.9;
+    color:var(--soft);
+}
+
+.code-area p{
+    margin:0;
+    white-space:nowrap;
+}
+
+.code-area .indent{
+    padding-left:18px;
+}
+
+.code-area .double{
+    padding-left:38px;
+}
+
+.code-purple{
+    color:#c792ea;
+}
+
+.code-blue{
+    color:var(--blue3);
+}
+
+.code-green{
+    color:#6ee7a0;
+}
+
+.cursor-line{
+    height:18px;
+}
+
+.cursor{
+    display:inline-block;
+    width:7px;
+    height:15px;
+    vertical-align:-3px;
+    background:var(--blue);
+    animation:blink 1s steps(2,start) infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.developer-card-footer{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:18px;
+    padding-top:17px;
+    border-top:1px solid rgba(255,255,255,.07);
+    color:var(--soft);
+    font-size:12px;
+    font-weight:600;
+}
+
+.developer-card-footer span:first-child{
+    color:var(--blue2);
+}
+
+.developer-card-footer span:last-child{
+    color:var(--gold);
+}
+
+.floating-card{
+    position:absolute;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:12px 15px;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:15px;
+    background:rgba(16,19,26,.84);
+    box-shadow:0 16px 35px rgba(0,0,0,.30);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+.floating-card strong{
+    color:var(--blue2);
+    font-size:15px;
+}
+
+.card-html{
+    left:-22px;
+    top:72px;
+}
+
+.card-css{
+    right:-18px;
+    top:155px;
+    animation-delay:-1.6s;
+}
+
+.card-css strong{
+    color:var(--gold);
+}
+
+.card-js{
+    right:10px;
+    bottom:45px;
+    animation-delay:-3s;
+}
+
+.card-js strong{
+    color:#f7d66b;
+}
+
+@keyframes floatCard{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-9px)}
+}
+
+/* ================= INTRO ================= */
+
+.intro-strip{
+    position:relative;
+    padding:70px 0;
+    border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:linear-gradient(135deg,rgba(16,19,26,.88),rgba(10,15,21,.92));
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.intro-title span{
+    display:block;
+    margin-bottom:10px;
+    color:var(--blue);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.intro-title h3{
+    max-width:560px;
+    color:#fff;
+    font-size:clamp(25px,3vw,40px);
+    line-height:1.18;
+    letter-spacing:-1.5px;
+}
+
+.intro-title h3 strong{
+    display:block;
+    color:var(--gold);
+}
+
+.intro-grid > p{
+    max-width:600px;
+    color:var(--soft);
+    font-size:16px;
+    line-height:1.9;
+}
+
+/* ================= GENERAL SECTIONS ================= */
+
+.section-space{
+    padding:105px 0;
+}
+
+.section-heading{
+    display:grid;
+    grid-template-columns:.55fr 1.45fr;
+    align-items:end;
+    gap:40px;
+    margin-bottom:45px;
+}
+
+.section-number{
+    display:block;
+    margin-bottom:6px;
+    color:var(--blue);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.eyebrow{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.section-heading h2{
+    max-width:800px;
+    color:#fff;
+    font-size:clamp(32px,4vw,55px);
+    line-height:1.05;
+    letter-spacing:-2.5px;
+}
+
+.section-heading h2 span{
+    display:block;
+    color:var(--gold);
+}
+
+/* ================= SERVICES ================= */
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.service-card{
+    position:relative;
+    min-height:285px;
+    padding:27px 24px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:var(--radius);
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    overflow:hidden;
+    transition:transform var(--ease),border-color var(--ease),background var(--ease),box-shadow var(--ease);
+}
+
+.service-card::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:-65px;
+    bottom:-65px;
+    border-radius:50%;
+    background:rgba(0,168,255,.08);
+    filter:blur(20px);
+}
+
+.service-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,168,255,.30);
+    background:rgba(0,168,255,.045);
+    box-shadow:0 20px 45px rgba(0,0,0,.24);
+}
+
+.service-icon{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    margin-bottom:28px;
+    border:1px solid rgba(0,168,255,.20);
+    border-radius:14px;
+    background:rgba(0,168,255,.07);
+    color:var(--blue2);
+    font-family:"Courier New",monospace;
+    font-size:13px;
+    font-weight:800;
+}
+
+.service-number{
+    position:absolute;
+    top:27px;
+    right:24px;
+    color:rgba(255,255,255,.28);
+    font-family:"Courier New",monospace;
+    font-size:11px;
+}
+
+.service-card h3{
+    margin-bottom:12px;
+    color:#fff;
+    font-size:18px;
+    line-height:1.3;
+}
+
+.service-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.75;
+}
+
+/* ================= SKILLS ================= */
+
+.skill-preview-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.skill-pill{
+    min-height:64px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:0 17px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    background:rgba(255,255,255,.035);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    transition:var(--ease);
+}
+
+.skill-pill span{
+    color:var(--blue);
+    font-family:"Courier New",monospace;
+    font-size:10px;
+}
+
+.skill-pill:hover{
+    transform:translateY(-4px);
+    border-color:rgba(0,168,255,.28);
+    background:rgba(0,168,255,.055);
+}
+
+.center-button{
+    display:flex;
+    justify-content:center;
+    margin-top:34px;
+}
+
+.outline-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 19px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:12px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    background:rgba(255,255,255,.035);
+    transition:var(--ease);
+}
+
+.outline-btn:hover{
+    transform:translateY(-3px);
+    border-color:rgba(0,168,255,.4);
+    background:rgba(0,168,255,.07);
+}
+
+/* ================= PROJECTS ================= */
+
+.project-preview-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.project-card{
+    position:relative;
+    min-height:285px;
+    padding:27px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:var(--radius);
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    overflow:hidden;
+    transition:var(--ease);
+}
+
+.project-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,168,255,.30);
+    box-shadow:0 22px 50px rgba(0,0,0,.28);
+}
+
+.project-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:48px;
+}
+
+.project-index{
+    color:var(--blue);
+    font-family:"Courier New",monospace;
+    font-size:11px;
+    font-weight:800;
+}
+
+.project-type{
+    padding:6px 9px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:999px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.project-card h3{
+    margin-bottom:8px;
+    color:#fff;
+    font-size:25px;
+    line-height:1.15;
+}
+
+.project-card > p{
+    max-width:390px;
+    color:var(--soft);
+    font-size:13px;
+}
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:22px;
+}
+
+.project-tags span{
+    padding:6px 9px;
+    border-radius:8px;
+    background:rgba(0,168,255,.06);
+    color:var(--blue2);
+    font-size:10px;
+    font-weight:700;
+}
+
+.project-arrow{
+    position:absolute;
+    right:25px;
+    bottom:23px;
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:12px;
+    color:#fff;
+    background:rgba(255,255,255,.035);
+    font-size:18px;
+    transition:var(--ease);
+}
+
+.project-arrow:hover{
+    background:var(--blue);
+    border-color:var(--blue);
+    transform:translateX(4px);
+}
+
+/* ================= CTA ================= */
+
+.cta-section{
+    padding:100px 0;
+}
+
+.cta-box{
+    position:relative;
+    padding:80px 40px;
+    text-align:center;
+    border:1px solid rgba(178,138,104,.23);
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 80% 30%,rgba(0,168,255,.12),transparent 35%),
+        linear-gradient(135deg,rgba(53,42,37,.70),rgba(16,19,26,.88));
+    overflow:hidden;
+}
+
+.cta-decoration{
+    position:absolute;
+    width:260px;
+    height:260px;
+    left:-130px;
+    bottom:-160px;
+    border-radius:50%;
+    background:rgba(138,106,82,.13);
+    filter:blur(10px);
+}
+
+.cta-box .eyebrow{
+    position:relative;
+    margin-bottom:15px;
+    color:var(--blue2);
+}
+
+.cta-box h2{
+    position:relative;
+    max-width:850px;
+    margin:0 auto 16px;
+    color:#fff;
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.05;
+    letter-spacing:-2.5px;
+}
+
+.cta-box h2 span{
+    display:block;
+    color:var(--gold);
+}
+
+.cta-box > p:not(.eyebrow){
+    position:relative;
+    max-width:620px;
+    margin:0 auto 28px;
+    color:var(--soft);
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer{
+    margin-top:0;
+    border-top:1px solid rgba(255,255,255,.07);
+    background:rgba(5,7,10,.92);
+}
+
+.footer-main{
+    display:grid;
+    grid-template-columns:1.4fr .7fr .9fr 1fr;
+    gap:40px;
+    padding:70px 0 55px;
+}
+
+.footer-brand .logo{
+    margin-bottom:16px;
+}
+
+.footer-brand p{
+    max-width:330px;
+    margin-bottom:13px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+.footer-email{
+    color:var(--blue2);
+    font-size:12px;
+    transition:var(--ease);
+}
+
+.footer-email:hover{
+    color:#fff;
+}
+
+.footer-column{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+}
+
+.footer-column h4{
+    margin-bottom:8px;
+    color:#fff;
+    font-size:13px;
+}
+
+.footer-column a,
+.footer-column span{
+    color:var(--muted);
+    font-size:12px;
+    transition:var(--ease);
+}
+
+.footer-column a:hover{
+    color:var(--blue2);
+    transform:translateX(3px);
+}
+
+.footer-column p{
+    max-width:190px;
+    margin-bottom:5px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.footer-contact-btn{
+    display:inline-flex!important;
+    padding:8px 12px;
+    border:1px solid rgba(0,168,255,.25);
+    border-radius:9px;
+    background:rgba(0,168,255,.06);
+}
+
+.footer-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:20px 0 25px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.footer-bottom p{
+    color:#696765;
+    font-size:11px;
+}
+
+/* ================= ANIMATION HELPERS ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(22px);
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.page-loaded .hero-content,
+.page-loaded .hero-visual{
+    animation:heroIn .8s ease both;
+}
+
+.page-loaded .hero-visual{
+    animation-delay:.08s;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.button-ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.25);
+    transform:scale(0);
+    animation:ripple .6s ease-out forwards;
+    pointer-events:none;
+}
+
+@keyframes ripple{
+    to{
+        transform:scale(2);
+        opacity:0;
+    }
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width:1100px){
+    .hero-grid{
+        grid-template-columns:1fr 1fr;
+        gap:42px;
+    }
+
+    .hero-content h1{
+        font-size:clamp(48px,6.5vw,72px);
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .skill-preview-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-main{
+        grid-template-columns:1.2fr 1fr 1fr;
+    }
+
+    .footer-column:last-child{
+        grid-column:1/-1;
+    }
+}
+
+/* ================= MOBILE NAV + LAYOUT ================= */
+
+@media (max-width:850px){
+    .site-header{
+        padding:12px 0;
+    }
+
+    .header-inner{
+        gap:12px;
+    }
+
+    .site-nav{
+        position:fixed;
+        top:70px;
+        left:20px;
+        right:20px;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:5px;
+        padding:12px;
+        border:1px solid rgba(255,255,255,.10);
+        border-radius:18px;
+        background:rgba(12,15,20,.96);
+        box-shadow:0 25px 60px rgba(0,0,0,.45);
+        backdrop-filter:blur(18px);
+        -webkit-backdrop-filter:blur(18px);
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-12px);
+        transition:var(--ease);
+    }
+
+    .site-nav.active{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
+
+    .site-nav a{
+        width:100%;
+        padding:12px 14px;
+    }
+
+    .site-nav a.active::after{
+        left:14px;
+        right:auto;
+        width:30px;
+    }
+
+    .nav-btn{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+
+    .hero-section{
+        min-height:auto;
+        padding:120px 0 70px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .hero-content{
+        max-width:760px;
+    }
+
+    .hero-visual{
+        min-height:480px;
+    }
+
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .section-heading{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .skill-preview-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-column:last-child{
+        grid-column:auto;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width:600px){
+    .container{
+        width:min(calc(100% - 28px),var(--container));
+    }
+
+    .logo-text{
+        font-size:14px;
+    }
+
+    .logo-mark{
+        width:40px;
+        height:40px;
+        border-radius:12px;
+    }
+
+    .hero-section{
+        padding:105px 0 60px;
+    }
+
+    .availability{
+        font-size:9px;
+        letter-spacing:1px;
+    }
+
+    .hero-content h1{
+        font-size:clamp(43px,14vw,62px);
+        letter-spacing:-3px;
+    }
+
+    .hero-content h2{
+        font-size:22px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .hero-mini-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-visual{
+        min-height:430px;
+    }
+
+    .developer-card{
+        min-height:390px;
+        padding:18px;
+        border-radius:20px;
+    }
+
+    .code-area{
+        font-size:10px;
+        line-height:1.9;
+    }
+
+    .code-area p{
+        white-space:normal;
+        overflow-wrap:anywhere;
+    }
+
+    .code-area .indent{
+        padding-left:10px;
+    }
+
+    .code-area .double{
+        padding-left:20px;
+    }
+
+    .floating-card{
+        padding:9px 11px;
+        font-size:9px;
+    }
+
+    .floating-card strong{
+        font-size:12px;
+    }
+
+    .card-html{
+        left:-4px;
+        top:25px;
+    }
+
+    .card-css{
+        right:-3px;
+        top:120px;
+    }
+
+    .card-js{
+        right:0;
+        bottom:18px;
+    }
+
+    .orbit-one{
+        width:340px;
+        height:340px;
+    }
+
+    .orbit-two{
+        width:280px;
+        height:280px;
+    }
+
+    .section-space{
+        padding:75px 0;
+    }
+
+    .section-heading h2{
+        font-size:34px;
+        letter-spacing:-1.5px;
+    }
+
+    .service-grid,
+    .skill-preview-grid,
+    .project-preview-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:auto;
+    }
+
+    .project-card{
+        min-height:270px;
+    }
+
+    .cta-section{
+        padding:70px 0;
+    }
+
+    .cta-box{
+        padding:60px 20px;
+        border-radius:22px;
+    }
+
+    .cta-box h2{
+        font-size:34px;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:55px 0 40px;
+    }
+
+    .footer-column:last-child{
+        grid-column:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+/* ================= VERY SMALL ================= */
+
+@media (max-width:380px){
+    .hero-mini-stats{
+        grid-template-columns:1fr 1fr;
+        gap:7px;
+    }
+
+    .mini-stat{
+        padding:11px 9px;
+    }
+
+    .code-area{
+        font-size:9px;
+    }
+
+    .logo-text{
+        font-size:13px;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion:reduce){
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+}
+/* =========================================================
+   HOME PAGE — EXTRA SIDE SPACING
+   ========================================================= */
+
+.hero-section > .container,
+.hero-section .container {
+    width: calc(100% - 120px);
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero content ko edge se andar rakho */
+.hero-grid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Developer card right edge se safe distance */
+.hero-visual {
+    padding-right: 10px;
+}
+
+/* Intro aur baaki Home sections bhi balanced rahen */
+.intro-strip > .container,
+.section-space > .container,
+.cta-section > .container {
+    width: calc(100% - 120px);
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .hero-section > .container,
+    .hero-section .container,
+    .intro-strip > .container,
+    .section-space > .container,
+    .cta-section > .container {
+        width: calc(100% - 70px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero-section > .container,
+    .hero-section .container,
+    .intro-strip > .container,
+    .section-space > .container,
+    .cta-section > .container {
+        width: calc(100% - 30px);
+    }
+
+    .hero-grid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-visual {
+        padding-right: 0;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">SE</span>
+                <span class="logo-text">SHERDIL <strong>EJAZ</strong></span>
+            </a>
+
+            <nav class="site-nav" id="mainNav">
+
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
+            <a href="contact.html" class="nav-btn">
+                Let's Talk
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-glow glow-one"></div>
+            <div class="hero-glow glow-two"></div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="availability">
+                        <span class="status-dot"></span>
+                        Available for Web Projects
+                    </div>
+
+                    <p class="hero-small-title">
+                        HELLO, I'M
+                    </p>
+
+                    <h1>
+                        Sherdil
+                        <span>Ejaz.</span>
+                    </h1>
+
+                    <h2>
+                        Web Designer
+                        <span>&amp;</span>
+                        Developer
+                    </h2>
+
+                    <p class="hero-description">
+                        I create modern, responsive and professional
+                        websites with clean code, strong layouts and
+                        a premium user experience.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="projects.html" class="btn btn-primary">
+                            View My Projects
+                            <span>↗</span>
+                        </a>
+
+                        <a href="contact.html" class="btn btn-secondary">
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                    <div class="hero-mini-stats">
+
+                        <div class="mini-stat">
+                            <strong>HTML5</strong>
+                            <span>Structure</span>
+                        </div>
+
+                        <div class="mini-stat">
+                            <strong>CSS3</strong>
+                            <span>Design</span>
+                        </div>
+
+                        <div class="mini-stat">
+                            <strong>JS</strong>
+                            <span>Interaction</span>
+                        </div>
+
+                        <div class="mini-stat">
+                            <strong>WP</strong>
+                            <span>Websites</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="hero-visual">
+
+                    <div class="visual-orbit orbit-one"></div>
+                    <div class="visual-orbit orbit-two"></div>
+
+                    <div class="developer-card">
+
+                        <div class="card-top">
+
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+
+                            <span class="card-label">
+                                developer.profile
+                            </span>
+
+                        </div>
+
+                        <div class="code-area">
+
+                            <p>
+                                <span class="code-purple">const</span>
+                                developer =
+                            </p>
+
+                            <p class="indent">
+                                {
+                            </p>
+
+                            <p class="indent double">
+                                name:
+                                <span class="code-blue">
+                                    "Sherdil Ejaz"
+                                </span>,
+                            </p>
+
+                            <p class="indent double">
+                                role:
+                                <span class="code-blue">
+                                    "Web Developer"
+                                </span>,
+                            </p>
+
+                            <p class="indent double">
+                                skills:
+                                <span class="code-blue">
+                                    ["HTML", "CSS", "JS"]
+                                </span>,
+                            </p>
+
+                            <p class="indent double">
+                                responsive:
+                                <span class="code-green">
+                                    true
+                                </span>,
+                            </p>
+
+                            <p class="indent double">
+                                cleanCode:
+                                <span class="code-green">
+                                    true
+                                </span>
+                            </p>
+
+                            <p class="indent">
+                                };
+                            </p>
+
+                            <p class="cursor-line">
+                                <span class="cursor"></span>
+                            </p>
+
+                        </div>
+
+                        <div class="developer-card-footer">
+
+                            <span>
+                                ● Clean Code
+                            </span>
+
+                            <span>
+                                ● Responsive
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card card-html">
+                        <strong>&lt;/&gt;</strong>
+                        <span>HTML5</span>
+                    </div>
+
+                    <div class="floating-card card-css">
+                        <strong>#</strong>
+                        <span>CSS3</span>
+                    </div>
+
+                    <div class="floating-card card-js">
+                        <strong>JS</strong>
+                        <span>JavaScript</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             INTRO STRIP
+        ========================== -->
+
+        <section class="intro-strip">
+
+            <div class="container intro-grid">
+
+                <div class="intro-title">
+                    <span>01</span>
+                    <h3>
+                        Turning ideas into
+                        <strong>digital experiences.</strong>
+                    </h3>
+                </div>
+
+                <p>
+                    From simple business websites to WordPress and
+                    WooCommerce projects, I focus on creating websites
+                    that look professional and work smoothly across
+                    different devices.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WHAT I DO
+        ========================== -->
+
+        <section class="services-section section-space">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-number">02</span>
+                        <p class="eyebrow">WHAT I DO</p>
+                    </div>
+
+                    <h2>
+                        Building websites
+                        <span>with purpose.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <span class="service-number">01</span>
+
+                        <h3>Frontend Development</h3>
+
+                        <p>
+                            Modern website interfaces built with
+                            HTML5, CSS3 and JavaScript with attention
+                            to structure, usability and performance.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            ◇
+                        </div>
+
+                        <span class="service-number">02</span>
+
+                        <h3>Responsive Design</h3>
+
+                        <p>
+                            Layouts designed to adapt smoothly to
+                            desktops, laptops, tablets and mobile
+                            screens.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            WP
+                        </div>
+
+                        <span class="service-number">03</span>
+
+                        <h3>WordPress &amp; WooCommerce</h3>
+
+                        <p>
+                            Custom WordPress websites and WooCommerce
+                            stores designed around the project's
+                            requirements.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            SEO
+                        </div>
+
+                        <span class="service-number">04</span>
+
+                        <h3>Clean &amp; SEO-Friendly</h3>
+
+                        <p>
+                            Clean structure, organized code and
+                            SEO-friendly foundations for a better
+                            website experience.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS PREVIEW
+        ========================== -->
+
+        <section class="skills-preview section-space">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-number">03</span>
+                        <p class="eyebrow">MY SKILLS</p>
+                    </div>
+
+                    <h2>
+                        Tools I use to
+                        <span>build the web.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skill-preview-grid">
+
+                    <div class="skill-pill">
+                        <span>01</span>
+                        HTML5
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>02</span>
+                        CSS3
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>03</span>
+                        JavaScript
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>04</span>
+                        Responsive Design
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>05</span>
+                        WordPress
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>06</span>
+                        WooCommerce
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>07</span>
+                        PHP
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>08</span>
+                        GitHub
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>09</span>
+                        SEO Friendly
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>10</span>
+                        Clean Code
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>11</span>
+                        UI Design
+                    </div>
+
+                    <div class="skill-pill">
+                        <span>12</span>
+                        Cross-Device
+                    </div>
+
+                </div>
+
+
+                <div class="center-button">
+
+                    <a href="skills.html" class="outline-btn">
+                        Explore All Skills
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURED PROJECTS
+        ========================== -->
+
+        <section class="projects-preview section-space">
+
+            <div class="container">
+
+                <div class="section-heading project-heading">
+
+                    <div>
+                        <span class="section-number">04</span>
+                        <p class="eyebrow">SELECTED WORK</p>
+                    </div>
+
+                    <h2>
+                        Projects that
+                        <span>speak for themselves.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="project-preview-grid">
+
+                    <article class="project-card">
+
+                        <div class="project-card-top">
+
+                            <span class="project-index">
+                                01
+                            </span>
+
+                            <span class="project-type">
+                                WooCommerce
+                            </span>
+
+                        </div>
+
+                        <h3>Avenelle</h3>
+
+                        <p>
+                            Cosmetics &amp; Perfume
+                            E-Commerce Website
+                        </p>
+
+                        <div class="project-tags">
+                            <span>WordPress</span>
+                            <span>WooCommerce</span>
+                        </div>
+
+                        <a href="projects.html"
+                           class="project-arrow">
+                            →
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div class="project-card-top">
+
+                            <span class="project-index">
+                                02
+                            </span>
+
+                            <span class="project-type">
+                                Fashion
+                            </span>
+
+                        </div>
+
+                        <h3>Maison Vero</h3>
+
+                        <p>
+                            Modern Clothing &
+                            Fashion Website
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Web Design</span>
+                            <span>Responsive</span>
+                        </div>
+
+                        <a href="projects.html"
+                           class="project-arrow">
+                            →
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div class="project-card-top">
+
+                            <span class="project-index">
+                                03
+                            </span>
+
+                            <span class="project-type">
+                                WordPress
+                            </span>
+
+                        </div>
+
+                        <h3>Iron Voult</h3>
+
+                        <p>
+                            Professional Gym &
+                            Fitness Website
+                        </p>
+
+                        <div class="project-tags">
+                            <span>WordPress</span>
+                            <span>UI Design</span>
+                        </div>
+
+                        <a href="projects.html"
+                           class="project-arrow">
+                            →
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div class="project-card-top">
+
+                            <span class="project-index">
+                                04
+                            </span>
+
+                            <span class="project-type">
+                                Coding
+                            </span>
+
+                        </div>
+
+                        <h3>Sherdil Yousafzai</h3>
+
+                        <p>
+                            Premium Perfume Website
+                            built with code
+                        </p>
+
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
+                        </div>
+
+                        <a href="projects.html"
+                           class="project-arrow">
+                            →
+                        </a>
+
+                    </article>
+
+                </div>
+
+
+                <div class="center-button">
+
+                    <a href="projects.html"
+                       class="outline-btn">
+                        View All Projects
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <div class="cta-decoration"></div>
+
+                    <p class="eyebrow">
+                        HAVE A PROJECT IN MIND?
+                    </p>
+
+                    <h2>
+                        Let's build something
+                        <span>great together.</span>
+                    </h2>
+
+                    <p>
+                        Tell me about your idea and let's turn it
+                        into a professional digital experience.
+                    </p>
+
+                    <a href="mailto:sherdilejaz2009@gmail.com"
+                       class="btn btn-primary">
+                        Start a Conversation
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+
+                        <span class="logo-mark">
+                            S
+                        </span>
+
+                        <span class="logo-text">
+                            SHERDIL <strong>EJAZ</strong>
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Web Designer &amp; Developer creating
+                        modern, responsive and professional
+                        digital experiences.
+                    </p>
+
+                    <a href="mailto:sherdilejaz2009@gmail.com"
+                       class="footer-email">
+                        sherdilejaz2009@gmail.com
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Navigation</h4>
+
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Expertise</h4>
+
+                    <span>HTML5 &amp; CSS3</span>
+                    <span>JavaScript</span>
+                    <span>WordPress</span>
+                    <span>WooCommerce</span>
+                    <span>Responsive Design</span>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Let's Connect</h4>
+
+                    <p>
+                        Have a website idea?
+                        Let's talk about it.
+                    </p>
+
+                    <a href="mailto:sherdilejaz2009@gmail.com"
+                       class="footer-contact-btn">
+                        Email Me →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Sherdil Ejaz. All rights reserved.
+                </p>
+
+                <p>
+                    Designed &amp; Developed by
+                    <strong>Sherdil Ejaz</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
+
