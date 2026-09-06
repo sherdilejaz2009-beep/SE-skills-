@@ -1628,6 +1628,139 @@ img{
         padding-right: 0;
     }
 }
+
+
+/* =========================================================
+   STEP 1 — PREMIUM HERO ENHANCEMENTS
+   ========================================================= */
+
+.typing-title{
+    min-height:42px;
+    display:flex;
+    align-items:center;
+    gap:3px;
+}
+
+.typing-title > #typing-text{
+    display:inline-block;
+}
+
+.typing-cursor{
+    display:inline-block;
+    color:var(--blue2);
+    font-weight:400;
+    animation:typingCursorBlink .8s steps(1,end) infinite;
+}
+
+@keyframes typingCursorBlink{
+    0%,45%{opacity:1}
+    46%,100%{opacity:0}
+}
+
+.hero-buttons .btn{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+.hero-buttons .btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-130%;
+    width:65%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+    transform:skewX(-20deg);
+    transition:left .7s ease;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.hero-buttons .btn:hover::before{
+    left:145%;
+}
+
+.hero-buttons .btn:hover{
+    transform:translateY(-4px);
+}
+
+.hero-glow{
+    transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.scroll-indicator{
+    position:absolute;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    z-index:4;
+    pointer-events:none;
+    opacity:.72;
+}
+
+.scroll-indicator span{
+    position:relative;
+    width:22px;
+    height:36px;
+    border:1px solid rgba(255,255,255,.42);
+    border-radius:20px;
+}
+
+.scroll-indicator span::before{
+    content:"";
+    position:absolute;
+    top:7px;
+    left:50%;
+    width:4px;
+    height:7px;
+    border-radius:10px;
+    background:var(--blue2);
+    transform:translateX(-50%);
+    box-shadow:0 0 10px rgba(0,168,255,.7);
+    animation:scrollWheel 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollWheel{
+    0%{opacity:0;transform:translate(-50%,0)}
+    25%{opacity:1}
+    70%{opacity:1}
+    100%{opacity:0;transform:translate(-50%,13px)}
+}
+
+.scroll-indicator p{
+    margin:0;
+    color:var(--muted);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:2.5px;
+}
+
+@media (max-width:850px){
+    .typing-title{min-height:38px}
+    .scroll-indicator{bottom:18px}
+}
+
+@media (max-width:600px){
+    .typing-title{
+        font-size:22px!important;
+        min-height:34px;
+    }
+    .scroll-indicator{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+    .typing-cursor,
+    .scroll-indicator span::before{
+        animation:none;
+    }
+    .hero-glow{transition:none}
+}
+
 </style>
 
 </head>
@@ -1705,10 +1838,9 @@ img{
                         <span>Ejaz.</span>
                     </h1>
 
-                    <h2>
-                        Web Designer
-                        <span>&amp;</span>
-                        Developer
+                    <h2 class="typing-title">
+                        <span id="typing-text"></span>
+                        <span class="typing-cursor">|</span>
                     </h2>
 
                     <p class="hero-description">
@@ -1868,7 +2000,13 @@ img{
 
             </div>
 
-        </section>
+                        <!-- PREMIUM HERO SCROLL INDICATOR -->
+                <div class="scroll-indicator" aria-hidden="true">
+                    <span></span>
+                    <p>SCROLL TO EXPLORE</p>
+                </div>
+
+</section>
 
 
         <!-- =========================
@@ -2429,8 +2567,88 @@ img{
     </footer>
 
 
-    <script src="./script.js"></script>
+    <script>
+/* =========================================================
+   STEP 1 — PREMIUM HERO JAVASCRIPT
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const typingText = document.getElementById("typing-text");
+
+    if (typingText) {
+        const words = [
+            "Web Designer",
+            "Frontend Developer",
+            "WordPress Developer",
+            "Creative Developer"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+                    deleting = true;
+                    setTimeout(typeEffect, 1600);
+                    return;
+                }
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    deleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(typeEffect, 450);
+                    return;
+                }
+            }
+
+            setTimeout(typeEffect, deleting ? 55 : 90);
+        }
+
+        typeEffect();
+    }
+
+    const hero = document.querySelector(".hero-section");
+    const glows = document.querySelectorAll(".hero-glow");
+
+    if (
+        hero &&
+        glows.length &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        hero.addEventListener("mousemove", function (event) {
+            const rect = hero.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            glows.forEach(function (glow, index) {
+                const strength = index === 0 ? 24 : -18;
+                glow.style.transform =
+                    `translate(${x * strength}px, ${y * strength}px)`;
+            });
+        });
+
+        hero.addEventListener("mouseleave", function () {
+            glows.forEach(function (glow) {
+                glow.style.transform = "translate(0, 0)";
+            });
+        });
+    }
+
+});
+</script>
+
+<script src="./script.js"></script>
 
 </body>
 </html>
-
