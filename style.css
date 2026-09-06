@@ -5116,3 +5116,486 @@ body.page-loaded {
     }
 
 }
+/* =========================================================
+   SHERDIL EJAZ — CONTACT PAGE PREMIUM UPGRADE
+========================================================= */
+
+:root {
+    --contact-glow: rgba(0, 168, 255, .22);
+    --contact-glow-gold: rgba(178, 138, 104, .20);
+}
+
+/* Premium page background */
+body {
+    background:
+        radial-gradient(circle at 8% 12%, rgba(0, 168, 255, .075), transparent 26%),
+        radial-gradient(circle at 92% 25%, rgba(178, 138, 104, .075), transparent 28%),
+        linear-gradient(135deg, #07090d, #0c1118 58%, #090c11);
+}
+
+/* ================= HERO UPGRADE ================= */
+
+.contact-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(0, 168, 255, .12);
+    border-radius: 50%;
+    right: -170px;
+    top: -180px;
+    box-shadow: 0 0 80px rgba(0, 168, 255, .08);
+    pointer-events: none;
+}
+
+.contact-hero::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(178, 138, 104, .10);
+    border-radius: 50%;
+    left: -150px;
+    bottom: -170px;
+    pointer-events: none;
+}
+
+.contact-hero .section-heading {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-hero h1 span,
+.contact-info h2 span,
+.form-heading h2 span,
+.contact-benefits h2 span,
+.cta-box h2 span {
+    text-shadow: 0 0 28px rgba(0, 168, 255, .12);
+}
+
+/* ================= CONTACT CARDS ================= */
+
+.contact-card,
+.availability-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, .055),
+            rgba(255, 255, 255, .018)
+        );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.contact-card::before,
+.availability-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(0, 168, 255, .07),
+            transparent 70%
+        );
+
+    transform: translateX(-110%);
+    transition: transform .7s ease;
+    pointer-events: none;
+}
+
+.contact-card:hover,
+.availability-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 168, 255, .28);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, .28),
+        0 0 30px rgba(0, 168, 255, .06);
+}
+
+.contact-card:hover::before,
+.availability-card:hover::before {
+    transform: translateX(110%);
+}
+
+/* Contact icons */
+
+.contact-icon {
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 0 24px rgba(0, 168, 255, .14);
+}
+
+/* ================= CONTACT FORM ================= */
+
+.contact-form-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 168, 255, .16);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .30),
+        inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.contact-form-wrapper::before {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    right: -90px;
+    top: -90px;
+
+    background: rgba(0, 168, 255, .09);
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+/* Form inputs */
+
+.contact-form .form-group {
+    position: relative;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    border: 1px solid rgba(255, 255, 255, .10);
+    background: rgba(5, 8, 13, .55);
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease,
+        background .3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, .38);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+
+    border-color: rgba(0, 168, 255, .55);
+
+    background: rgba(5, 10, 16, .78);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 168, 255, .08),
+        0 10px 30px rgba(0, 0, 0, .15);
+
+    transform: translateY(-1px);
+}
+
+/* ================= SUBMIT BUTTON ================= */
+
+.form-submit {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    box-shadow: 0 12px 30px rgba(0, 168, 255, .12);
+}
+
+.form-submit::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, .30),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left .7s ease;
+
+    z-index: -1;
+}
+
+.form-submit:hover::before {
+    left: 140%;
+}
+
+/* ================= GMAIL BUTTONS ================= */
+
+.gmail-btn {
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.gmail-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, .22);
+}
+
+/* ================= BENEFIT CARDS ================= */
+
+.benefit-card {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .075);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, .045),
+            rgba(255, 255, 255, .012)
+        );
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.benefit-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    right: -45px;
+    bottom: -45px;
+
+    background: rgba(0, 168, 255, .08);
+
+    filter: blur(8px);
+
+    transition: transform .35s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(0, 168, 255, .22);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .24);
+}
+
+.benefit-card:hover::after {
+    transform: scale(1.6);
+}
+
+.benefit-number {
+    transition:
+        transform .35s ease,
+        color .35s ease;
+}
+
+.benefit-card:hover .benefit-number {
+    transform: translateX(4px);
+}
+
+/* ================= INSTAGRAM CARDS ================= */
+
+.instagram-card {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, .05),
+            rgba(255, 255, 255, .015)
+        );
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.instagram-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 25%,
+            rgba(255, 255, 255, .055),
+            transparent 72%
+        );
+
+    transform: translateX(-120%);
+
+    transition: transform .7s ease;
+
+    pointer-events: none;
+}
+
+.instagram-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0, 168, 255, .25);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, .25);
+}
+
+.instagram-card:hover::before {
+    transform: translateX(120%);
+}
+
+.instagram-icon {
+    transition: transform .35s ease;
+}
+
+.instagram-card:hover .instagram-icon {
+    transform: scale(1.1);
+}
+
+/* ================= FINAL CTA ================= */
+
+.cta-box {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 168, 255, .16);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .25);
+}
+
+.cta-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    left: -170px;
+    top: -170px;
+
+    background: rgba(0, 168, 255, .08);
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+.cta-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    right: -130px;
+    bottom: -140px;
+
+    background: rgba(178, 138, 104, .07);
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+.cta-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+    .contact-grid {
+        gap: 30px;
+    }
+
+    .contact-hero::before {
+        width: 280px;
+        height: 280px;
+
+        right: -170px;
+        top: -100px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .contact-hero {
+        padding-top: 130px;
+    }
+
+    .contact-hero h1 {
+        line-height: 1.08;
+    }
+
+    .contact-card:hover,
+    .availability-card:hover,
+    .benefit-card:hover,
+    .instagram-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .contact-form-wrapper {
+        border-radius: 20px;
+    }
+
+}
